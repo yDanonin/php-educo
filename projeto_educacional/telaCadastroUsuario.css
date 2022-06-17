@@ -1,0 +1,21 @@
+*{
+    background-color:#000022;
+}
+#logo{
+    position: relative;
+    text-align: center;
+}
+#formulario{
+    color: white;
+    text-align:center;
+
+}
+#formulario input{
+    color:white;
+    border-radius: 10px;
+    border-color: white;
+}
+#print{
+    text-align: center;
+    color: white;
+}

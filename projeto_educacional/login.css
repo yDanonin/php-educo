@@ -1,0 +1,25 @@
+*{
+	background: url("img/Web/fundo1.png") no-repeat right top fixed;
+	background-size: cover;
+	
+}
+#logo{
+    position: relative;
+    text-align: center;
+}
+#formulario{
+    color: white;
+    text-align:center;
+	background-color: white solid;
+	z-index: 2;	
+    
+}
+#formulario input{
+    color:white;
+    border-radius: 10px;
+    border-color: white;
+}
+#print{
+    text-align: center;
+    color: white;
+}

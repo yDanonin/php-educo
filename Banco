@@ -1,0 +1,97 @@
+CREATE DATABASE dbPlataformaEducacional;
+use dbPlataformaEducacional;
+
+CREATE TABLE tbUsuario(
+	idUsuario int PRIMARY KEY AUTO_INCREMENT,
+    Nome varchar(150) not null,
+    NomePerfil varchar(150) not null,
+    Senha varchar(150) not null,
+    Email varchar(150) not null,
+    DataNasc timestamp not null,
+    FotoPerfil varchar(150) null,
+    FotoCapa varchar(150) null,
+    Biografia varchar(200) null
+);
+
+CREATE TABLE tbJogo(
+	idJogo int PRIMARY KEY AUTO_INCREMENT,
+    Nome varchar(150) not null
+);
+
+CREATE TABLE tbJogadores(
+	idUsuario int,
+    idJogo int,
+	PRIMARY KEY(idUsuario, idJogo),
+	FOREIGN KEY (idUsuario) references tbUsuario(idUsuario),
+    FOREIGN KEY(idJogo) references tbJogo(idJogo),
+	Pontuacao varchar(50) not null
+);
+
+CREATE TABLE tbHistAcesso(
+	idAcesso int primary key auto_increment,
+    DataHoraEntrada datetime not null,
+    DataHoraSaida datetime not null,
+    idUsuario int,
+    FOREIGN KEY(idUsuario) REFERENCES tbUsuario(idUsuario)
+);
+
+CREATE TABLE tbProfessor(
+	CPFProfessor decimal(11) primary key not null,
+    RGProfessor char(9) not null,
+    Telefone decimal(9) null,
+    idUsuario int,
+    FOREIGN KEY(idUsuario) REFERENCES tbUsuario(idUsuario)
+);
+
+CREATE TABLE tbSala(
+	idSala int PRIMARY KEY AUTO_INCREMENT,
+    NomeSala varchar(100),
+    Foto varchar(150),
+    Publico boolean
+);
+
+CREATE TABLE tbPost(
+	idPost int PRIMARY KEY AUTO_INCREMENT,
+    Conteudo varchar(150) not null,
+    idSala int,
+    FOREIGN KEY(idSala) REFERENCES tbSala(idSala)
+);
+
+CREATE TABLE tbVideo(
+	idVideo int PRIMARY KEY AUTO_INCREMENT,
+    Descricao varchar(150) null,
+    Titulo varchar(100) not null,
+    idPost int,
+    CPFProfessor decimal(11),
+    FOREIGN KEY(idPost) REFERENCES tbPost(idPost),
+    FOREIGN KEY(CPFProfessor) REFERENCES tbProfessor(CPFProfessor)
+);
+
+CREATE TABLE tbParticipantes(
+	idUsuario int,
+    idSala int,
+	PRIMARY KEY(idUsuario, idSala),
+	FOREIGN KEY(idUsuario) REFERENCES tbUsuario(idUsuario),
+    FOREIGN KEY(idSala) REFERENCES tbSala(idSala)
+);
+select * from tbUsuario;
+
+
+
+
+insert into tbSala(NomeSala, Publico, Foto) values('Etec Abdias do Nascimento', TRUE, 'fotoEtec.png');
+insert into tbSala(NomeSala, Publico, Foto) values('Teste', False, 'teste.png');
+select * from tbSala;
+
+insert into tbParticipantes(idUsuario, idSala) values(1, 1);
+insert into tbParticipantes(idUsuario, idSala) values(1, 2);
+select * from tbParticipantes;
+
+
+select idUsuario from tbUsuario where Email LIKE "luiz.felipe@gmail.com"
+
+
+
+
+
+-- DROP DATABASE dbplataformaeducacional;

@@ -1,0 +1,47 @@
+header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 6.5em;
+    color: #000022;
+    -webkit-box-direction: normal;
+    box-sizing: border-box;
+    background-color: #000022;
+    display: block;
+
+}
+nav{
+    display: block;
+}
+img{
+    margin-left: 20%;
+    font-size: 0;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
+    display: inline-block;
+}
+
+
+#menu ul li{
+    float: right;
+    margin-left: 1.25em;
+
+}
+ul{
+	list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+#menu ul li{
+	display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.9em;
+    background-color: black;
+	color:white;
+    width: 9em;
+}
